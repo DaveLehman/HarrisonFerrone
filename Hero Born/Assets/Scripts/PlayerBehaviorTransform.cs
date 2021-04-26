@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerBehaviorTransform : MonoBehaviour
 {
+    /*
+     * One approach to moving a player is adjusting transforms directly, ignoring the physics.
+     * Advantage - it's easy
+     * Disadvantage - it doesn't use physics
+     */
     public float moveSpeed = 10f;
     public float rotateSpeed = 75f;
 

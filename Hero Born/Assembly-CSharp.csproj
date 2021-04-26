@@ -58,6 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerBehaviorTransform.cs" />
     <Compile Include="Assets\Scripts\CameraBehavior.cs" />
+    <Compile Include="Assets\Scripts\PlayerBehaviorPhysics.cs" />
+    <Compile Include="Assets\Scripts\PickupItemBehavior.cs" />
+    <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
