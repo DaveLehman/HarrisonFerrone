@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5331662301780468862
+--- !u!1 &8105767938016752661
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5331662301780468832}
-  - component: {fileID: 5331662301780468835}
-  - component: {fileID: 5331662301780468834}
-  - component: {fileID: 5331662301780468861}
-  - component: {fileID: 5331662301780468860}
-  - component: {fileID: 5331662301780468863}
+  - component: {fileID: 8105767938016752655}
+  - component: {fileID: 8105767938016752654}
+  - component: {fileID: 8105767938016752649}
+  - component: {fileID: 8105767938016752648}
+  - component: {fileID: 8105767938016752651}
+  - component: {fileID: 8105767938016752650}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -21,35 +21,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5331662301780468832
+--- !u!4 &8105767938016752655
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331662301780468862}
+  m_GameObject: {fileID: 8105767938016752661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07, y: 1.39, z: 7.09}
+  m_LocalPosition: {x: -0.07, y: 2.59, z: 7.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5331662301780468835
+--- !u!33 &8105767938016752654
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331662301780468862}
+  m_GameObject: {fileID: 8105767938016752661}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5331662301780468834
+--- !u!23 &8105767938016752649
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331662301780468862}
+  m_GameObject: {fileID: 8105767938016752661}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,13 +84,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5331662301780468861
+--- !u!136 &8105767938016752648
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331662301780468862}
+  m_GameObject: {fileID: 8105767938016752661}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -98,13 +98,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5331662301780468860
+--- !u!54 &8105767938016752651
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331662301780468862}
+  m_GameObject: {fileID: 8105767938016752661}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -114,17 +114,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &5331662301780468863
+--- !u!114 &8105767938016752650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331662301780468862}
+  m_GameObject: {fileID: 8105767938016752661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d7a758fc0037043aba472ec22f7c35, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b63e81f05b01394d8be391ca5130de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 75
+  jumpVelocity: 8
+  distanceToGround: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  bullet: {fileID: 1875396921053992828, guid: ceacb0fbff50ee943a7082cbc4b591bc, type: 3}
+  bulletSpeed: 100

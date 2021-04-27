@@ -56,11 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerBehaviorTransform.cs" />
-    <Compile Include="Assets\Scripts\CameraBehavior.cs" />
-    <Compile Include="Assets\Scripts\PlayerBehaviorPhysics.cs" />
-    <Compile Include="Assets\Scripts\PickupItemBehavior.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
+    <Compile Include="Assets\Scripts\PickupItemBehavior.cs" />
+    <Compile Include="Assets\Scripts\PlayerBehaviorTransform.cs" />
+    <Compile Include="Assets\Scripts\PlayerBehaviorPhysics.cs" />
+    <Compile Include="Assets\Scripts\PlayerBehaviorPhysicsJumpNoMultiJump.cs" />
+    <Compile Include="Assets\Scripts\PlayerBehaviorPhysicsJump.cs" />
+    <Compile Include="Assets\Scripts\CameraBehavior.cs" />
+    <Compile Include="Assets\Scripts\BulletBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
