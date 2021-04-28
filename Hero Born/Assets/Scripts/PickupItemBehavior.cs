@@ -28,7 +28,7 @@ public class PickupItemBehavior : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             Destroy(this.transform.parent.gameObject);
-            Debug.Log("Item collected!");
+            //Debug.Log("Item collected!");
             gameManager.Items += 1;
         }
     }

@@ -23,12 +23,14 @@ public class PlayerBehaviorPhysicsJumpNoMultiJump : MonoBehaviour
 
     private Rigidbody _rb;
     private CapsuleCollider _col;
+    private GameBehavior _gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _col = GetComponent<CapsuleCollider>();
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameBehavior>();
         if(_rb == null)
         {
             Debug.Log($"Failed to obtain "+ this.name+"'s Rigidbody component");
@@ -36,6 +38,10 @@ public class PlayerBehaviorPhysicsJumpNoMultiJump : MonoBehaviour
         if (_col == null)
         {
             Debug.Log($"Failed to obtain " + this.name + "'s Capsule Collider component");
+        }
+        if (_col == null)
+        {
+            Debug.Log($"Failed to obtain Game Behavior's Game Manager component");
         }
     }
 
@@ -63,22 +69,19 @@ public class PlayerBehaviorPhysicsJumpNoMultiJump : MonoBehaviour
 
         if (jumping)
         {
-            Debug.Log("Jump");
+            //Debug.Log("Jump");
             _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
             jumping = false;
         }
 
         if(shooting)
         {
-            Debug.Log("Bang");
+            //Debug.Log("Bang");
             GameObject newBullet = Instantiate(bullet, this.transform.position + new Vector3(1, 0, 0), this.transform.rotation) as GameObject;
             Rigidbody bulletRB = newBullet.GetComponent<Rigidbody>();
             bulletRB.velocity = this.transform.forward * bulletSpeed;
             shooting = false;
         }
-
-
-
     }
 
     private bool IsGrounded()
@@ -91,28 +94,11 @@ public class PlayerBehaviorPhysicsJumpNoMultiJump : MonoBehaviour
         
     }
 
-    private bool CheckGrounded()
+    private void OnCollisionEnter(Collision collision)
     {
-        float slopeLimit = 45f;
-        
-        // stole this one from https://www.immersivelimit.com/tutorials/simple-character-controller-for-unity
-        
-        float capsuleHeight = Mathf.Max(_col.radius * 2f, _col.height);
-        Vector3 capsuleBottom = transform.TransformPoint(_col.center - Vector3.up * capsuleHeight / 2f);
-        float radius = transform.TransformVector(_col.radius, 0f, 0f).magnitude;
-
-        Ray ray = new Ray(capsuleBottom + transform.up * .01f, -transform.up);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, radius * 5f))
+        if (collision.gameObject.name == "Enemy")
         {
-            float normalAngle = Vector3.Angle(hit.normal, transform.up);
-            if (normalAngle < slopeLimit)
-            {
-                float maxDist = radius / Mathf.Cos(Mathf.Deg2Rad * normalAngle) - radius + .02f;
-                if (hit.distance < maxDist)
-                    return true;
-            }
+            _gameManager.PlayerHP -= 1;
         }
-        return false;
     }
 }
